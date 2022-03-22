@@ -43,8 +43,6 @@ struct node {
   }
 
   void increment(int S, int E, int v) {
-    // cout << (l) << endl;
-    // cout << s << " " << e << " " << v << endl;
     if (s == S and e == E) {
       lazy += v;
     } else {

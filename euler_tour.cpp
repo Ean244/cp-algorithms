@@ -1,26 +1,18 @@
 #include <bits/stdc++.h>
 using namespace std;
-// #pragma GCC optimize("O3,unroll-loops")
-// #pragma GCC target("avx2,bmi,bmi2,lzcnt,popcnt")
 
 #ifdef LOCAL_PROJECT
 #else
     #define cerr if(false)cerr
 #endif
 
-
 #define f first
 #define s second
 #define pb push_back
-#define endl '\n'
 
 #define all(x) x.begin(), x.end()
 #define ALL(x) begin(x), end(x)
-#define sz(a) (int)(a).size()
-#define debug(x) cerr << #x << " is " << x << endl;
-#define debugv(v) for (auto x : v) cerr << x << " "; cerr << endl;
-#define rep(x,start,end) for(auto x=(start)-((start)>(end));x!=(end)-((start)>(end));((start)<(end)?x++:x--))
-
+#define FOR(i, a) for (int i = 0; i < (a); i++)
 
 typedef pair<int, int> ii;
 typedef long long ll;
@@ -34,10 +26,25 @@ const ll INFL = 1e18;
 const int MOD = 1000000007;
 const int sz = 2e5 + 5;
 
+vi adj[sz];
+int st[sz];  // inclusive
+int en[sz];  // exclusive
+int timer = 1;
+
+void dfs(int node, int parent) {
+  st[node] = timer;
+  ++timer;
+  for (auto u : adj[node]) {
+    if (u != parent) {
+      dfs(u, node);
+    }
+  }
+  en[node] = timer - 1;
+}
+
 signed main() {
     ios::sync_with_stdio(false);
     cin.tie(NULL);
-    cout.tie(NULL);
 #ifdef LOCAL_PROJECT
 #else
     // freopen("input.txt", "r", stdin);
