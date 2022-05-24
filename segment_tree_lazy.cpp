@@ -19,7 +19,7 @@ struct node {
   node(int S, int E) {
     s = S;
     e = E;
-    m = (s + e) / 2;
+    m = (s + e) >> 1;
     l = nullptr;
     r = nullptr;
   }
@@ -32,7 +32,7 @@ struct node {
   }
 
   void propagate() {
-    // if (lazy == 0) return;
+    if (lazy == 0) return;
     val += (e - s + 1) * lazy;
     if (s != e) {
       if (l == nullptr) create();

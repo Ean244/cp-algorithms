@@ -1,23 +1,3 @@
-#include <bits/stdc++.h>
-using namespace std;
-
-#define f first
-#define s second
-#define pb push_back
-
-#define all(x) x.begin(), x.end()
-#define FOR(i, a) for (int i = 0; i < (a); i++)
-
-typedef pair<int, int> ii;
-typedef long long ll;
-typedef vector<int> vi;
-typedef vector<ii> vii;
-typedef tuple<int, int, int> iii;
-
-const int INF = 1e9;
-const ll INFL = 1e18;
-const int MOD = 1000000007;
-
 struct mi {
   int v;
   explicit operator int() const { return v; }
@@ -45,8 +25,3 @@ mi inv(mi a) {
   return pw(a, MOD - 2);
 }
 mi operator/(mi a, mi b) { return a * inv(b); }
-
-int main() {
-  ios::sync_with_stdio(false);
-  cin.tie(NULL);
-}

@@ -1,15 +1,3 @@
-#include <bits/stdc++.h>
-using namespace std;
-
-typedef pair<int, int> ii;
-typedef long long ll;
-typedef vector<int> vi;
-typedef vector<ii> vii;
-typedef tuple<int, int, int> iii;
-
-const int INF = 1e9;
-const ll INFL = 1e18;
-
 struct node {
   int s, e, m;
   int val;
@@ -49,26 +37,4 @@ struct node {
     else return min(l->query(S, m), r->query(m + 1, E));
   }
 
-} * root;
-
-int main() {
-  ios::sync_with_stdio(false);
-  cin.tie(NULL);
-  int n, q;
-  cin >> n >> q;
-
-  root = new node(1, n);
-  for (int i = 0; i < q; ++i) {
-    int x;
-    cin >> x;
-    int u, v;
-    cin >> u >> v;
-    if (x == 1) {
-      ++u;
-      root->update(u, v);
-    } else {
-      ++u; ++v;
-      cout << root->query(u, v) << endl;
-    }
-  }
-}
+};
